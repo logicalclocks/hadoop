@@ -105,7 +105,7 @@ public class UserGroupInformation {
    */
   private static final float TICKET_RENEW_WINDOW = 0.80f;
   private static boolean shouldRenewImmediatelyForTests = false;
-  static final String HADOOP_USER_NAME = "HADOOP_USER_NAME";
+  public static final String HADOOP_USER_NAME = "REMOTE_HADOOP_USER_NAME";
   static final String HADOOP_PROXY_USER = "HADOOP_PROXY_USER";
 
   /**

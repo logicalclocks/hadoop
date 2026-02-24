@@ -59,18 +59,18 @@ public class SSLFactory implements ConnectionConfigurator {
   @InterfaceAudience.Private
   public enum Mode { CLIENT, SERVER }
 
-  public static final String SSL_CLIENT_CONF_KEY = "hadoop.ssl.client.conf";
+  public static final String SSL_CLIENT_CONF_KEY = "rahdfs.ssl.client.conf";
   public static final String SSL_CLIENT_CONF_DEFAULT = "ssl-client.xml";
-  public static final String SSL_SERVER_CONF_KEY = "hadoop.ssl.server.conf";
+  public static final String SSL_SERVER_CONF_KEY = "rahdfs.ssl.server.conf";
   public static final String SSL_SERVER_CONF_DEFAULT = "ssl-server.xml";
 
   public static final String SSL_REQUIRE_CLIENT_CERT_KEY =
-      "hadoop.ssl.require.client.cert";
+      "rahdfs.ssl.require.client.cert";
   public static final boolean SSL_REQUIRE_CLIENT_CERT_DEFAULT = false;
   public static final String SSL_HOSTNAME_VERIFIER_KEY =
-      "hadoop.ssl.hostname.verifier";
+      "rahdfs.ssl.hostname.verifier";
   public static final String SSL_ENABLED_PROTOCOLS_KEY =
-      "hadoop.ssl.enabled.protocols";
+      "rahdfs.ssl.enabled.protocols";
   public static final String SSL_ENABLED_PROTOCOLS_DEFAULT =
       "TLSv1,SSLv2Hello,TLSv1.1,TLSv1.2";
 
@@ -102,7 +102,7 @@ public class SSLFactory implements ConnectionConfigurator {
   public static final String SSLCERTIFICATE = IBM_JAVA?"ibmX509":"SunX509";
 
   public static final String KEYSTORES_FACTORY_CLASS_KEY =
-    "hadoop.ssl.keystores.factory.class";
+    "rahdfs.ssl.keystores.factory.class";
 
   private Configuration conf;
   private Mode mode;

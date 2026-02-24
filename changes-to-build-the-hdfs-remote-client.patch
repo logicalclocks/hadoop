@@ -1,0 +1,72 @@
+diff --git a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/security/UserGroupInformation.java b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/security/UserGroupInformation.java
+index c44ef72d5c89..6a98eb37f733 100644
+--- a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/security/UserGroupInformation.java
++++ b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/security/UserGroupInformation.java
+@@ -105,7 +105,7 @@ public class UserGroupInformation {
+    */
+   private static final float TICKET_RENEW_WINDOW = 0.80f;
+   private static boolean shouldRenewImmediatelyForTests = false;
+-  static final String HADOOP_USER_NAME = "HADOOP_USER_NAME";
++  public static final String HADOOP_USER_NAME = "REMOTE_HADOOP_USER_NAME";
+   static final String HADOOP_PROXY_USER = "HADOOP_PROXY_USER";
+ 
+   /**
+diff --git a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/NativeCodeLoader.java b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/NativeCodeLoader.java
+index a8a380ed070d..dd5160340b80 100644
+--- a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/NativeCodeLoader.java
++++ b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/NativeCodeLoader.java
+@@ -43,18 +43,22 @@ public final class NativeCodeLoader {
+     if(LOG.isDebugEnabled()) {
+       LOG.debug("Trying to load the custom-built native-hadoop library...");
+     }
+-    try {
+-      System.loadLibrary("hadoop");
+-      LOG.debug("Loaded the native-hadoop library");
+-      nativeCodeLoaded = true;
+-    } catch (Throwable t) {
+-      // Ignore failure to load
+-      if(LOG.isDebugEnabled()) {
+-        LOG.debug("Failed to load native-hadoop with error: " + t);
+-        LOG.debug("java.library.path=" +
+-            System.getProperty("java.library.path"));
+-      }
+-    }
++    /*
++     * When using the hdfs remote client we should not try to load the native class as the code in c++ is
++     * not shaded.
++     */
++    //    try {
++    //      System.loadLibrary("hadoop");
++    //      LOG.debug("Loaded the native-hadoop library");
++    //      nativeCodeLoaded = true;
++    //    } catch (Throwable t) {
++    //      // Ignore failure to load
++    //      if(LOG.isDebugEnabled()) {
++    //        LOG.debug("Failed to load native-hadoop with error: " + t);
++    //        LOG.debug("java.library.path=" +
++    //            System.getProperty("java.library.path"));
++    //      }
++    //    }
+     
+     if (!nativeCodeLoaded) {
+       LOG.warn("Unable to load native-hadoop library for your platform... " +
+diff --git a/hadoop-hdfs-project/hadoop-hdfs-client/src/main/java/org/apache/hadoop/hdfs/protocol/HdfsConstants.java b/hadoop-hdfs-project/hadoop-hdfs-client/src/main/java/org/apache/hadoop/hdfs/protocol/HdfsConstants.java
+index 74efcd2b55e9..1260e1759797 100644
+--- a/hadoop-hdfs-project/hadoop-hdfs-client/src/main/java/org/apache/hadoop/hdfs/protocol/HdfsConstants.java
++++ b/hadoop-hdfs-project/hadoop-hdfs-client/src/main/java/org/apache/hadoop/hdfs/protocol/HdfsConstants.java
+@@ -90,8 +90,14 @@ public final class HdfsConstants {
+   /**
+    * HDFS Protocol Names:
+    */
++  /*
++   * The MARKER is here to avoid that the shading overwrite the string as we need the
++   * String to match the one in the name node.
++   * The Marker is removed by the shading
++   *
++   */
+   public static final String CLIENT_NAMENODE_PROTOCOL_NAME =
+-      "org.apache.hadoop.hdfs.protocol.ClientProtocol";
++      "MARKER.org.apache.hadoop.hdfs.protocol.ClientProtocol";
+ 
+   // Timeouts for communicating with DataNode for streaming writes/reads
+   public static final int READ_TIMEOUT = 60 * 1000;

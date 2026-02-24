@@ -29,7 +29,7 @@
   <name>Apache Hadoop Client Runtime</name>
 
   <properties>
-    <shaded.dependency.prefix>org.apache.hadoop.shaded</shaded.dependency.prefix>
+    <shaded.dependency.prefix>org.apache.hadoop.remote.shaded</shaded.dependency.prefix>
     <!-- We contain no source -->
     <maven.javadoc.skip>true</maven.javadoc.skip>
   </properties>
@@ -54,12 +54,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <!-- At runtime anyone using us must have the api present -->
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-client-api</artifactId>
-      <scope>runtime</scope>
-    </dependency>
     <!-- This comes from our parent pom. If we don't expressly change it here to get included,
          downstream will get warnings at compile time. -->
     <dependency>
@@ -79,11 +73,6 @@
          * Slf4j API
          * commons-logging
       -->
-    <dependency>
-      <groupId>org.apache.htrace</groupId>
-      <artifactId>htrace-core4</artifactId>
-      <scope>runtime</scope>
-    </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -144,10 +133,6 @@
                 <configuration>
                   <artifactSet>
                     <excludes>
-                      <!-- We need a filter that matches just those things that aer included in the api jar -->
-                      <exclude>org.apache.hadoop:hadoop-client-api</exclude>
-                      <!-- Leave HTrace as an unshaded dependency on purpose, since a static class member is used to trace within a given JVM instance -->
-                      <exclude>org.apache.htrace:htrace-core4</exclude>
                       <!-- Leave slf4j unshaded so downstream users can configure logging. -->
                       <exclude>org.slf4j:slf4j-api</exclude>
                       <!-- Leave commons-logging unshaded so downstream users can configure logging. -->
@@ -160,14 +145,6 @@
                     </excludes>
                   </artifactSet>
                   <filters>
-                    <!-- We need a filter that matches just those things that are included in the api jar -->
-                    <filter>
-                      <artifact>org.apache.hadoop:*</artifact>
-                      <excludes>
-                        <exclude>**/*</exclude>
-                        <exclude>*</exclude>
-                      </excludes>
-                    </filter>
                     <!-- Some of our dependencies include source, so remove it. -->
                     <filter>
                       <artifact>*:*</artifact>
@@ -217,11 +194,7 @@
                       <pattern>org/</pattern>
                       <shadedPattern>${shaded.dependency.prefix}.org.</shadedPattern>
                       <excludes>
-                        <exclude>org/apache/hadoop/*</exclude>
-                        <exclude>org/apache/hadoop/**/*</exclude>
                         <!-- Our non-shaded htrace and logging libraries -->
-                        <exclude>org/apache/htrace/*</exclude>
-                        <exclude>org/apache/htrace/**/*</exclude>
                         <exclude>org/slf4j/*</exclude>
                         <exclude>org/slf4j/**/*</exclude>
                         <exclude>org/apache/commons/logging/*</exclude>
@@ -329,6 +302,10 @@
                       </excludes>
                     </relocation>
     -->
+                    <relocation>
+                      <pattern>MARKER.org.apache.hadoop.hdfs.protocol/</pattern>
+                      <shadedPattern>org.apache.hadoop.hdfs.protocol.</shadedPattern>
+                    </relocation>
                   </relocations>
                   <transformers>
                     <!-- Needed until MSHADE-182 -->

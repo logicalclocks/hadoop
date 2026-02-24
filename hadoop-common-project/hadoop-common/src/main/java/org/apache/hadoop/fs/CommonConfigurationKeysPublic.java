@@ -322,13 +322,13 @@ public class CommonConfigurationKeysPublic {
   public static final int     TFILE_FS_OUTPUT_BUFFER_SIZE_DEFAULT = 256*1024;
 
   public static final String  HADOOP_CALLER_CONTEXT_ENABLED_KEY =
-      "hadoop.caller.context.enabled";
+      "rahdfs.caller.context.enabled";
   public static final boolean HADOOP_CALLER_CONTEXT_ENABLED_DEFAULT = false;
   public static final String  HADOOP_CALLER_CONTEXT_MAX_SIZE_KEY =
-      "hadoop.caller.context.max.size";
+      "rahdfs.caller.context.max.size";
   public static final int     HADOOP_CALLER_CONTEXT_MAX_SIZE_DEFAULT = 128;
   public static final String  HADOOP_CALLER_CONTEXT_SIGNATURE_MAX_SIZE_KEY =
-      "hadoop.caller.context.signature.max.size";
+      "rahdfs.caller.context.signature.max.size";
   public static final int     HADOOP_CALLER_CONTEXT_SIGNATURE_MAX_SIZE_DEFAULT =
       40;
 
@@ -338,7 +338,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_CLIENT_CONNECTION_MAXIDLETIME_KEY =
-    "ipc.client.connection.maxidletime";
+    "rahdfs.ipc.client.connection.maxidletime";
   /** Default value for IPC_CLIENT_CONNECTION_MAXIDLETIME_KEY */
   public static final int     IPC_CLIENT_CONNECTION_MAXIDLETIME_DEFAULT = 10000; // 10s
   /**
@@ -347,7 +347,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_CLIENT_CONNECT_TIMEOUT_KEY =
-    "ipc.client.connect.timeout";
+    "rahdfs.ipc.client.connect.timeout";
   /** Default value for IPC_CLIENT_CONNECT_TIMEOUT_KEY */
   public static final int     IPC_CLIENT_CONNECT_TIMEOUT_DEFAULT = 20000; // 20s
   /**
@@ -356,7 +356,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_CLIENT_CONNECT_MAX_RETRIES_KEY =
-    "ipc.client.connect.max.retries";
+    "rahdfs.ipc.client.connect.max.retries";
   /** Default value for IPC_CLIENT_CONNECT_MAX_RETRIES_KEY */
   public static final int     IPC_CLIENT_CONNECT_MAX_RETRIES_DEFAULT = 10;
   /**
@@ -365,7 +365,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_CLIENT_CONNECT_RETRY_INTERVAL_KEY =
-      "ipc.client.connect.retry.interval";
+      "rahdfs.ipc.client.connect.retry.interval";
   /** Default value for IPC_CLIENT_CONNECT_RETRY_INTERVAL_KEY */
   public static final int     IPC_CLIENT_CONNECT_RETRY_INTERVAL_DEFAULT = 1000;
   /**
@@ -374,7 +374,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_CLIENT_CONNECT_MAX_RETRIES_ON_SOCKET_TIMEOUTS_KEY =
-    "ipc.client.connect.max.retries.on.timeouts";
+    "rahdfs.ipc.client.connect.max.retries.on.timeouts";
   /** Default value for IPC_CLIENT_CONNECT_MAX_RETRIES_ON_SOCKET_TIMEOUTS_KEY */
   public static final int  IPC_CLIENT_CONNECT_MAX_RETRIES_ON_SOCKET_TIMEOUTS_DEFAULT = 45;
   /**
@@ -383,11 +383,11 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_CLIENT_TCPNODELAY_KEY =
-    "ipc.client.tcpnodelay";
+    "rahdfs.ipc.client.tcpnodelay";
   /** Default value for IPC_CLIENT_TCPNODELAY_KEY */
   public static final boolean IPC_CLIENT_TCPNODELAY_DEFAULT = true;
   /** Enable low-latency connections from the client */
-  public static final String   IPC_CLIENT_LOW_LATENCY = "ipc.client.low-latency";
+  public static final String   IPC_CLIENT_LOW_LATENCY = "rahdfs.ipc.client.low-latency";
   /** Default value of IPC_CLIENT_LOW_LATENCY */
   public static final boolean  IPC_CLIENT_LOW_LATENCY_DEFAULT = false;
   /**
@@ -396,7 +396,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_SERVER_LISTEN_QUEUE_SIZE_KEY =
-    "ipc.server.listen.queue.size";
+    "rahdfs.ipc.server.listen.queue.size";
   /** Default value for IPC_SERVER_LISTEN_QUEUE_SIZE_KEY */
   public static final int     IPC_SERVER_LISTEN_QUEUE_SIZE_DEFAULT = 128;
   /**
@@ -404,7 +404,7 @@ public class CommonConfigurationKeysPublic {
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
-  public static final String  IPC_CLIENT_KILL_MAX_KEY = "ipc.client.kill.max";
+  public static final String  IPC_CLIENT_KILL_MAX_KEY = "rahdfs.ipc.client.kill.max";
   /** Default value for IPC_CLIENT_KILL_MAX_KEY */
   public static final int     IPC_CLIENT_KILL_MAX_DEFAULT = 10;
   /**
@@ -413,7 +413,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_CLIENT_IDLETHRESHOLD_KEY =
-    "ipc.client.idlethreshold";
+    "rahdfs.ipc.client.idlethreshold";
   /** Default value for IPC_CLIENT_IDLETHRESHOLD_DEFAULT */
   public static final int     IPC_CLIENT_IDLETHRESHOLD_DEFAULT = 4000;
   /**
@@ -422,7 +422,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_SERVER_TCPNODELAY_KEY =
-    "ipc.server.tcpnodelay";
+    "rahdfs.ipc.server.tcpnodelay";
   /** Default value for IPC_SERVER_TCPNODELAY_KEY */
   public static final boolean IPC_SERVER_TCPNODELAY_DEFAULT = true;
   /**
@@ -431,13 +431,13 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  IPC_SERVER_MAX_CONNECTIONS_KEY =
-    "ipc.server.max.connections";
+    "rahdfs.ipc.server.max.connections";
   /** Default value for IPC_SERVER_MAX_CONNECTIONS_KEY */
   public static final int     IPC_SERVER_MAX_CONNECTIONS_DEFAULT = 0;
 
   /** Logs if a RPC is really slow compared to rest of RPCs. */
   public static final String IPC_SERVER_LOG_SLOW_RPC =
-                                                "ipc.server.log.slow.rpc";
+                                                "rahdfs.ipc.server.log.slow.rpc";
   public static final boolean IPC_SERVER_LOG_SLOW_RPC_DEFAULT = false;
 
   /**
@@ -446,7 +446,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  HADOOP_RPC_SOCKET_FACTORY_CLASS_DEFAULT_KEY =
-    "hadoop.rpc.socket.factory.class.default";
+    "rahdfs.rpc.socket.factory.class.default";
   public static final String  HADOOP_RPC_SOCKET_FACTORY_CLASS_DEFAULT_DEFAULT =
     "org.apache.hadoop.net.StandardSocketFactory";
   /**
@@ -454,14 +454,14 @@ public class CommonConfigurationKeysPublic {
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
-  public static final String  HADOOP_SOCKS_SERVER_KEY = "hadoop.socks.server";
+  public static final String  HADOOP_SOCKS_SERVER_KEY = "rahdfs.socks.server";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String  HADOOP_UTIL_HASH_TYPE_KEY =
-    "hadoop.util.hash.type";
+    "rahdfs.util.hash.type";
   /** Default value for HADOOP_UTIL_HASH_TYPE_KEY */
   public static final String  HADOOP_UTIL_HASH_TYPE_DEFAULT = "murmur";
   /**
@@ -470,14 +470,14 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  HADOOP_SECURITY_GROUP_MAPPING =
-    "hadoop.security.group.mapping";
+    "rahdfs.security.group.mapping";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String  HADOOP_SECURITY_GROUPS_CACHE_SECS =
-    "hadoop.security.groups.cache.secs";
+    "rahdfs.security.groups.cache.secs";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
@@ -491,7 +491,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  HADOOP_SECURITY_GROUPS_NEGATIVE_CACHE_SECS =
-    "hadoop.security.groups.negative-cache.secs";
+    "rahdfs.security.groups.negative-cache.secs";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
@@ -505,7 +505,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_GROUPS_CACHE_WARN_AFTER_MS =
-    "hadoop.security.groups.cache.warn.after.ms";
+    "rahdfs.security.groups.cache.warn.after.ms";
   public static final long HADOOP_SECURITY_GROUPS_CACHE_WARN_AFTER_MS_DEFAULT =
     5000;
   /**
@@ -514,7 +514,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_GROUPS_CACHE_BACKGROUND_RELOAD =
-      "hadoop.security.groups.cache.background.reload";
+      "rahdfs.security.groups.cache.background.reload";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
@@ -529,7 +529,7 @@ public class CommonConfigurationKeysPublic {
    */
   public static final String
       HADOOP_SECURITY_GROUPS_CACHE_BACKGROUND_RELOAD_THREADS =
-          "hadoop.security.groups.cache.background.reload.threads";
+          "rahdfs.security.groups.cache.background.reload.threads";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
@@ -543,7 +543,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_GROUP_SHELL_COMMAND_TIMEOUT_KEY =
-      "hadoop.security.groups.shell.command.timeout";
+      "rahdfs.security.groups.shell.command.timeout";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
@@ -558,58 +558,58 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  HADOOP_SECURITY_AUTHENTICATION =
-    "hadoop.security.authentication";
+    "rahdfs.security.authentication";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_AUTHORIZATION =
-    "hadoop.security.authorization";
+    "rahdfs.security.authorization";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_INSTRUMENTATION_REQUIRES_ADMIN =
-    "hadoop.security.instrumentation.requires.admin";
+    "rahdfs.security.instrumentation.requires.admin";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String  HADOOP_SECURITY_SERVICE_USER_NAME_KEY =
-    "hadoop.security.service.user.name.key";
+    "rahdfs.security.service.user.name.key";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String  HADOOP_SECURITY_AUTH_TO_LOCAL =
-    "hadoop.security.auth_to_local";
+    "rahdfs.security.auth_to_local";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_DNS_INTERFACE_KEY =
-    "hadoop.security.dns.interface";
+    "rahdfs.security.dns.interface";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_DNS_NAMESERVER_KEY =
-    "hadoop.security.dns.nameserver";
+    "rahdfs.security.dns.nameserver";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_TOKEN_FILES =
-      "hadoop.token.files";
+      "rahdfs.token.files";
   public static final String HADOOP_HTTP_AUTHENTICATION_TYPE =
-    "hadoop.http.authentication.type";
+    "rahdfs.http.authentication.type";
 
   /**
    * @see
@@ -617,7 +617,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_KERBEROS_MIN_SECONDS_BEFORE_RELOGIN =
-          "hadoop.kerberos.min.seconds.before.relogin";
+          "rahdfs.kerberos.min.seconds.before.relogin";
   /** Default value for HADOOP_KERBEROS_MIN_SECONDS_BEFORE_RELOGIN */
   public static final int HADOOP_KERBEROS_MIN_SECONDS_BEFORE_RELOGIN_DEFAULT =
           60;
@@ -627,12 +627,12 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  HADOOP_RPC_PROTECTION =
-    "hadoop.rpc.protection";
+    "rahdfs.rpc.protection";
   /** Class to override Sasl Properties for a connection */
   public static final String  HADOOP_SECURITY_SASL_PROPS_RESOLVER_CLASS =
-    "hadoop.security.saslproperties.resolver.class";
+    "rahdfs.security.saslproperties.resolver.class";
   public static final String HADOOP_SECURITY_CRYPTO_CODEC_CLASSES_KEY_PREFIX = 
-    "hadoop.security.crypto.codec.classes";
+    "rahdfs.security.crypto.codec.classes";
   public static final String
       HADOOP_SECURITY_CRYPTO_CODEC_CLASSES_AES_CTR_NOPADDING_KEY =
       HADOOP_SECURITY_CRYPTO_CODEC_CLASSES_KEY_PREFIX
@@ -647,7 +647,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_CRYPTO_CIPHER_SUITE_KEY =
-    "hadoop.security.crypto.cipher.suite";
+    "rahdfs.security.crypto.cipher.suite";
   public static final String HADOOP_SECURITY_CRYPTO_CIPHER_SUITE_DEFAULT = 
     "AES/CTR/NoPadding";
   /**
@@ -656,26 +656,26 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_CRYPTO_JCE_PROVIDER_KEY =
-    "hadoop.security.crypto.jce.provider";
+    "rahdfs.security.crypto.jce.provider";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_CRYPTO_JCEKS_KEY_SERIALFILTER =
-      "hadoop.security.crypto.jceks.key.serialfilter";
+      "rahdfs.security.crypto.jceks.key.serialfilter";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_CRYPTO_BUFFER_SIZE_KEY = 
-    "hadoop.security.crypto.buffer.size";
+    "rahdfs.security.crypto.buffer.size";
   /** Defalt value for HADOOP_SECURITY_CRYPTO_BUFFER_SIZE_KEY */
   public static final int HADOOP_SECURITY_CRYPTO_BUFFER_SIZE_DEFAULT = 8192;
   /** Class to override Impersonation provider */
   public static final String  HADOOP_SECURITY_IMPERSONATION_PROVIDER_CLASS =
-    "hadoop.security.impersonation.provider.class";
+    "rahdfs.security.impersonation.provider.class";
 
   /**
    * @see
@@ -683,7 +683,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_KEY_PROVIDER_PATH =
-      "hadoop.security.key.provider.path";
+      "rahdfs.security.key.provider.path";
 
   /**
    * @see
@@ -691,7 +691,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_KEY_DEFAULT_BITLENGTH_KEY =
-      "hadoop.security.key.default.bitlength";
+      "rahdfs.security.key.default.bitlength";
   /** Defalt value for HADOOP_SECURITY_KEY_DEFAULT_BITLENGTH_KEY. */
   public static final int HADOOP_SECURITY_KEY_DEFAULT_BITLENGTH_DEFAULT = 128;
 
@@ -701,7 +701,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_KEY_DEFAULT_CIPHER_KEY =
-      "hadoop.security.key.default.cipher";
+      "rahdfs.security.key.default.cipher";
   /** Defalt value for HADOOP_SECURITY_KEY_DEFAULT_CIPHER_KEY. */
   public static final String HADOOP_SECURITY_KEY_DEFAULT_CIPHER_DEFAULT =
       "AES/CTR/NoPadding";
@@ -713,7 +713,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String KMS_CLIENT_ENC_KEY_CACHE_SIZE =
-      "hadoop.security.kms.client.encrypted.key.cache.size";
+      "rahdfs.security.kms.client.encrypted.key.cache.size";
   /** Default value for KMS_CLIENT_ENC_KEY_CACHE_SIZE */
   public static final int KMS_CLIENT_ENC_KEY_CACHE_SIZE_DEFAULT = 500;
 
@@ -723,7 +723,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String KMS_CLIENT_ENC_KEY_CACHE_LOW_WATERMARK =
-      "hadoop.security.kms.client.encrypted.key.cache.low-watermark";
+      "rahdfs.security.kms.client.encrypted.key.cache.low-watermark";
   /** Default value for KMS_CLIENT_ENC_KEY_CACHE_LOW_WATERMARK */
   public static final float KMS_CLIENT_ENC_KEY_CACHE_LOW_WATERMARK_DEFAULT =
       0.3f;
@@ -734,7 +734,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String KMS_CLIENT_ENC_KEY_CACHE_NUM_REFILL_THREADS =
-      "hadoop.security.kms.client.encrypted.key.cache.num.refill.threads";
+      "rahdfs.security.kms.client.encrypted.key.cache.num.refill.threads";
   /** Default value for KMS_CLIENT_ENC_KEY_NUM_REFILL_THREADS */
   public static final int KMS_CLIENT_ENC_KEY_CACHE_NUM_REFILL_THREADS_DEFAULT =
       2;
@@ -745,7 +745,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String KMS_CLIENT_ENC_KEY_CACHE_EXPIRY_MS =
-      "hadoop.security.kms.client.encrypted.key.cache.expiry";
+      "rahdfs.security.kms.client.encrypted.key.cache.expiry";
   /** Default value for KMS_CLIENT_ENC_KEY_CACHE_EXPIRY (12 hrs)*/
   public static final int KMS_CLIENT_ENC_KEY_CACHE_EXPIRY_DEFAULT = 43200000;
 
@@ -755,7 +755,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String KMS_CLIENT_TIMEOUT_SECONDS =
-      "hadoop.security.kms.client.timeout";
+      "rahdfs.security.kms.client.timeout";
   public static final int KMS_CLIENT_TIMEOUT_DEFAULT = 60;
 
   /**
@@ -765,7 +765,7 @@ public class CommonConfigurationKeysPublic {
    */
   /** Default value is the number of providers specified. */
   public static final String KMS_CLIENT_FAILOVER_MAX_RETRIES_KEY =
-      "hadoop.security.kms.client.failover.max.retries";
+      "rahdfs.security.kms.client.failover.max.retries";
 
   /**
    * @see
@@ -773,7 +773,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String KMS_CLIENT_FAILOVER_SLEEP_BASE_MILLIS_KEY =
-      "hadoop.security.kms.client.failover.sleep.base.millis";
+      "rahdfs.security.kms.client.failover.sleep.base.millis";
   /**  Default value is 100 ms. */
   public static final int KMS_CLIENT_FAILOVER_SLEEP_BASE_MILLIS_DEFAULT  = 100;
 
@@ -783,7 +783,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String KMS_CLIENT_FAILOVER_SLEEP_MAX_MILLIS_KEY =
-      "hadoop.security.kms.client.failover.sleep.max.millis";
+      "rahdfs.security.kms.client.failover.sleep.max.millis";
   /** Default value is 2 secs. */
   public static final int KMS_CLIENT_FAILOVER_SLEEP_MAX_MILLIS_DEFAULT  = 2000;
 
@@ -793,7 +793,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_JAVA_SECURE_RANDOM_ALGORITHM_KEY = 
-    "hadoop.security.java.secure.random.algorithm";
+    "rahdfs.security.java.secure.random.algorithm";
   /** Defalt value for HADOOP_SECURITY_JAVA_SECURE_RANDOM_ALGORITHM_KEY */
   public static final String HADOOP_SECURITY_JAVA_SECURE_RANDOM_ALGORITHM_DEFAULT = 
     "SHA1PRNG";
@@ -803,14 +803,14 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_SECURE_RANDOM_IMPL_KEY = 
-    "hadoop.security.secure.random.impl";
+    "rahdfs.security.secure.random.impl";
   /**
    * @see
    * <a href="{@docRoot}/../hadoop-project-dist/hadoop-common/core-default.xml">
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_KEY = 
-    "hadoop.security.random.device.file.path";
+    "rahdfs.security.random.device.file.path";
   public static final String HADOOP_SECURITY_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT = 
     "/dev/urandom";
 
@@ -820,7 +820,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SHELL_MISSING_DEFAULT_FS_WARNING_KEY =
-      "hadoop.shell.missing.defaultFs.warning";
+      "rahdfs.shell.missing.defaultFs.warning";
   public static final boolean HADOOP_SHELL_MISSING_DEFAULT_FS_WARNING_DEFAULT =
       false;
 
@@ -830,7 +830,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SHELL_SAFELY_DELETE_LIMIT_NUM_FILES =
-      "hadoop.shell.safely.delete.limit.num.files";
+      "rahdfs.shell.safely.delete.limit.num.files";
   public static final long HADOOP_SHELL_SAFELY_DELETE_LIMIT_NUM_FILES_DEFAULT =
       100;
 
@@ -840,7 +840,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_HTTP_LOGS_ENABLED =
-      "hadoop.http.logs.enabled";
+      "rahdfs.http.logs.enabled";
   /** Defalt value for HADOOP_HTTP_LOGS_ENABLED */
   public static final boolean HADOOP_HTTP_LOGS_ENABLED_DEFAULT = true;
 
@@ -850,7 +850,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_CREDENTIAL_PROVIDER_PATH =
-      "hadoop.security.credential.provider.path";
+      "rahdfs.security.credential.provider.path";
 
   /**
    * @see
@@ -858,7 +858,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_CREDENTIAL_CLEAR_TEXT_FALLBACK =
-      "hadoop.security.credential.clear-text-fallback";
+      "rahdfs.security.credential.clear-text-fallback";
   public static final boolean
       HADOOP_SECURITY_CREDENTIAL_CLEAR_TEXT_FALLBACK_DEFAULT = true;
 
@@ -868,7 +868,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String  HADOOP_SECURITY_CREDENTIAL_PASSWORD_FILE_KEY =
-      "hadoop.security.credstore.java-keystore-provider.password-file";
+      "rahdfs.security.credstore.java-keystore-provider.password-file";
 
   /**
    * @see
@@ -876,7 +876,7 @@ public class CommonConfigurationKeysPublic {
    * core-default.xml</a>
    */
   public static final String HADOOP_SECURITY_SENSITIVE_CONFIG_KEYS =
-      "hadoop.security.sensitive-config-keys";
+      "rahdfs.security.sensitive-config-keys";
   public static final String HADOOP_SECURITY_SENSITIVE_CONFIG_KEYS_DEFAULT =
       String.join(",",
           "secret$",
@@ -888,7 +888,7 @@ public class CommonConfigurationKeysPublic {
           "credential$",
           "oauth.*token$",
           HADOOP_SECURITY_SENSITIVE_CONFIG_KEYS);
-  public static final String HADOOP_SYSTEM_TAGS = "hadoop.system.tags";
-  public static final String HADOOP_CUSTOM_TAGS = "hadoop.custom.tags";
+  public static final String HADOOP_SYSTEM_TAGS = "rahdfs.system.tags";
+  public static final String HADOOP_CUSTOM_TAGS = "rahdfs.custom.tags";
 }
 

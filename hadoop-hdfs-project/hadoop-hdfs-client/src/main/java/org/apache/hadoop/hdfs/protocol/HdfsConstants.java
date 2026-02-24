@@ -90,8 +90,14 @@ public final class HdfsConstants {
   /**
    * HDFS Protocol Names:
    */
+  /*
+   * The MARKER is here to avoid that the shading overwrite the string as we need the
+   * String to match the one in the name node.
+   * The Marker is removed by the shading
+   *
+   */
   public static final String CLIENT_NAMENODE_PROTOCOL_NAME =
-      "org.apache.hadoop.hdfs.protocol.ClientProtocol";
+      "MARKER.org.apache.hadoop.hdfs.protocol.ClientProtocol";
 
   // Timeouts for communicating with DataNode for streaming writes/reads
   public static final int READ_TIMEOUT = 60 * 1000;
