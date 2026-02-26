@@ -1,0 +1,4 @@
+#docker pull localhost:30443/test__11:spark-feature-pipeline-meb10000-v1__1772372695679-4.4.3.0
+docker pull docker.hops.works/hopsworks/hopsworks-base:spark-feature-pipeline-4.4.3
+#            docker.hops.works/hopsworks/hopsfs:3.2.0.16-EE-RC0
+#            registry.service.consul:30443/test__11:spark-feature-pipeline-meb10000-v1__1772372695679-4.4.3.0

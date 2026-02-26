@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+  echo "Error: suffix is required"
+  echo "Usage: ./upload-jars <suffix>"
+  echo "Example: ./upload-jars testing1"
+  exit 1
+fi
+
+SUFFIX="$1"
+DEST="repo:/opt/repository/master/hdfs-remote-clients"
+
+scp /home/salman/code/hops/apache-hadoop/hadoop-client-modules/hadoop-client-runtime/target/hadoop-client-runtime-3.1.1.jar \
+  "${DEST}/hadoop-client-runtime-3.1.1-${SUFFIX}.jar"
+
+scp /home/salman/code/hops/apache-hadoop/hadoop-client-modules/hdfs-remote-client/target/hdfs-remote-client-3.1.1.jar \
+  "${DEST}/hdfs-remote-client-3.1.1-${SUFFIX}.jar"

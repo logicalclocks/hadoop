@@ -1,0 +1,13 @@
+spark.hadoop.rahdfs.core-site.path=/srv/hops/artifacts/core-site.xml
+spark.hadoop.rahdfs.hdfs-site.path=/srv/hops/artifacts/hdfs-site.xml
+spark.hadoop.rahdfs.security.token.service.use_ip=false 
+spark.hadoop.rahdfs.keytab.path=/srv/hops/artifacts/alice.keytab
+spark.hadoop.rahdfs.keytab.principal=alice@HOPSWORKS.AI
+spark.hadoop.rahdfs.krb5.realm=HOPSWORKS.AI
+spark.hadoop.rahdfs.krb5.kdc=kerberos-kdc.iam.svc.cluster.local:88
+
+
+
+//------------
+hc.set("fs.hdfs.impl", "io.hops.hdfs.remote.client.HdfsRemoteFileSystem")                  
+

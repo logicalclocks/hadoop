@@ -1,0 +1,3 @@
+export KUBECONFIG=/Users/salman/code/hops/apache-hadoop/test/update-docker-images-hopsfs/kubeconfig.yml
+kubectl port-forward services/docker-registry 30443:30443 -n hopsworks
+

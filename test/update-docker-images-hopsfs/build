@@ -1,0 +1,16 @@
+set -e
+set -x
+
+rm -rf share
+cp -r /Users/salman/code/hops/hops/hadoop-dist/target/hadoop-3.2.0.16-EE-RC2/share .
+
+#docker build . -t docker.hops.works/dev/salman/hopsworks-base:spark-feature-pipeline-4.4.3-1
+#docker push       docker.hops.works/dev/salman/hopsworks-base:spark-feature-pipeline-4.4.3-1
+
+export KUBECONFIG=/Users/salman/code/hops/apache-hadoop/test/update-docker-images-hopsfs/kubeconfig.yml
+docker build . -t localhost:30443/hopsworks-base:spark-feature-pipeline-4.4.3-1
+docker push       localhost:30443/hopsworks-base:spark-feature-pipeline-4.4.3-1
+
+
+md5sum /home/salman/code/hops/hops/hadoop-dist/target/hadoop-3.2.0.16-EE-RC2/share/hadoop/hdfs/hadoop-hdfs-3.2.0.16-EE-RC2.jar
+

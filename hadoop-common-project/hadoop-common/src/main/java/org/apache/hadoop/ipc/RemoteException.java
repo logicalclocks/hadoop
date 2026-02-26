@@ -82,7 +82,7 @@ public class RemoteException extends IOException {
     if(lookupTypes == null)
       return this;
     for(Class<?> lookupClass : lookupTypes) {
-      if(!lookupClass.getName().equals(getClassName()))
+      if(!classNameMatches(lookupClass.getName(), getClassName()))
         continue;
       try {
         return instantiateException(lookupClass.asSubclass(IOException.class));
@@ -93,6 +93,41 @@ public class RemoteException extends IOException {
     }
     // wrapped up exception is not in lookupTypes, just return this
     return this;
+  }
+
+  /**
+   * Check if two class names match, accounting for package shading.
+   *
+   * When this code runs inside a shaded JAR (hdfs-remote-client), all classes
+   * are relocated from org.apache.hadoop.* to
+   * org.apache.hadoop.remote.shaded.org.apache.hadoop.*. However, the remote
+   * HDFS server is un-shaded and sends exception class names using the original
+   * package (e.g. "org.apache.hadoop.ipc.StandbyException"). The local shaded
+   * class has the longer name (e.g. "org.apache.hadoop.remote.shaded.org.apache.
+   * hadoop.ipc.StandbyException"). A direct equals() comparison fails.
+   *
+   * We detect this by checking if the local (shaded) name ends with "."+remote
+   * (un-shaded) name. This is shade-proof because it uses no hardcoded package
+   * name strings — the shade plugin would mangle any string containing
+   * "org.apache.hadoop." at build time.
+   *
+   * This fix is critical for HA failover: without it, StandbyException from the
+   * server is not recognized by the retry policy, so the client never fails over
+   * from the standby namenode to the active one.
+   *
+   * @param local  class name from the local (possibly shaded) code
+   * @param remote class name from the remote server (always un-shaded)
+   */
+  private static boolean classNameMatches(String local, String remote) {
+    if (local.equals(remote)) {
+      return true;
+    }
+    // Shaded name is: prefix + "." + original name
+    // e.g. "org.apache.hadoop.remote.shaded" + "." + "org.apache.hadoop.ipc.StandbyException"
+    if (remote != null && local.endsWith("." + remote)) {
+      return true;
+    }
+    return false;
   }
 
   /**
