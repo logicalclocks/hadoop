@@ -1,13 +1,28 @@
+#-------------------- in the python notebook 
+=============================================
+
+spark.sparkContext._jvm.org.apache.hadoop.fs.FileSystem.closeAll()
+hc = spark.sparkContext._jsc.hadoopConfiguration()
+hc.set("fs.rahdfs.impl", "io.hops.hdfs.remote.client.HdfsRemoteFileSystem")     
+hc.set("rahdfs.core-site.path", "/srv/hops/artifacts/core-site.xml")
+hc.set("rahdfs.hdfs-site.path", "/srv/hops/artifacts/hdfs-site.xml")
+hc.set("rahdfs.security.token.service.use_ip", "false")   
+hc.set("rahdfs.hadoop.security.token.service.use_ip","false")
+hc.set("rahdfs.keytab.path", "/srv/hops/artifacts/alice.keytab")    
+hc.set("rahdfs.keytab.principal", "alice@HOPSWORKS.AI")             
+hc.set("rahdfs.krb5.realm", "HOPSWORKS.AI")                         
+hc.set("rahdfs.krb5.kdc", "kerberos-kdc.iam.svc.cluster.local:88")  
+
+#-------------------- in note book properties section
+=====================================================
+
+spark.hadoop.fs.rahdfs.impl=io.hops.hdfs.remote.client.HdfsRemoteFileSystem
 spark.hadoop.rahdfs.core-site.path=/srv/hops/artifacts/core-site.xml
 spark.hadoop.rahdfs.hdfs-site.path=/srv/hops/artifacts/hdfs-site.xml
-spark.hadoop.rahdfs.security.token.service.use_ip=false 
+spark.hadoop.rahdfs.security.token.service.use_ip=false
+spark.hadoop.rahdfs.hadoop.security.token.service.use_ip=false
+
 spark.hadoop.rahdfs.keytab.path=/srv/hops/artifacts/alice.keytab
 spark.hadoop.rahdfs.keytab.principal=alice@HOPSWORKS.AI
 spark.hadoop.rahdfs.krb5.realm=HOPSWORKS.AI
 spark.hadoop.rahdfs.krb5.kdc=kerberos-kdc.iam.svc.cluster.local:88
-
-
-
-//------------
-hc.set("fs.hdfs.impl", "io.hops.hdfs.remote.client.HdfsRemoteFileSystem")                  
-

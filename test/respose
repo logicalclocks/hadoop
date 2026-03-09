@@ -1,0 +1,46 @@
+Hi @Paul Cote and @Surjeet Kauraw,
+
+TL;DR:
+1. Add spark.hadoop.fs.rahdfs.impl=io.hops.hdfs.remote.client.HdfsRemoteFileSystem to the Jupyter server Spark properties (along with the other rahdfs.* properties listed below)
+2. In your notebook, remove the hc.set("fs.hdfs.impl", ...) cell — it is no longer needed
+3. Change read paths from hdfs://bdp-cdp-qa-01-ns/... to rahdfs://bdp-cdp-qa-01-ns/... (rahdfs stands for Remote Apache HDFS)
+
+We have tested your notebook with these changes and it is attached to this message.
+
+---
+Root Cause
+
+The error RPC response exceeds maximum data length is not related to data size. It occurs because the notebook sets fs.hdfs.impl to the remote HDFS client, which overrides the hdfs:// scheme globally. When Spark executors write data back to the Hopsworks Feature Store, internal operations that use the hdfs:// scheme are intercepted by the remote client instead of the native HopsFS client. The remote client attempts a Kerberos SASL handshake with the HopsFS namenode (which uses a different authentication mechanism), causing the connection failure.
+
+  Fix
+
+  Register the remote client under its own URI scheme (rahdfs://) so it does not interfere with HopsFS operations.
+
+  Step 1 — Add the following to the Jupyter Server Spark Properties:
+
+  spark.hadoop.fs.rahdfs.impl=io.hops.hdfs.remote.client.HdfsRemoteFileSystem
+  spark.hadoop.rahdfs.core-site.path=/srv/hops/artifacts/core-site.xml
+  spark.hadoop.rahdfs.hdfs-site.path=/srv/hops/artifacts/hdfs-site.xml
+  spark.hadoop.rahdfs.security.token.service.use_ip=false
+  spark.hadoop.rahdfs.keytab.path=/srv/hops/artifacts/<YOUR_KEYTAB>      <-- UPDATE_ME
+  spark.hadoop.rahdfs.keytab.principal=<USER>@<REALM>                    <-- UPDATE_ME
+  spark.hadoop.rahdfs.krb5.realm=<REALM>                                 <-- UPDATE_ME
+  spark.hadoop.rahdfs.krb5.kdc=<KDC_HOST>:88                            <-- UPDATE_ME
+
+  Step 2 — Update the notebook:
+
+  Remove this cell — it is no longer needed:
+  hc = spark.sparkContext._jsc.hadoopConfiguration()
+  hc.set("fs.hdfs.impl", "io.hops.hdfs.remote.client.HdfsRemoteFileSystem")
+
+  All configuration is now handled by the Jupyter server properties above.
+
+  Replace hdfs:// with rahdfs:// in your read paths:
+  # Before
+  sig_tran_aggr_read_df = spark.read.parquet("hdfs://bdp-cdp-qa-01-ns/...")
+
+  # After
+  sig_tran_aggr_read_df = spark.read.parquet("rahdfs://bdp-cdp-qa-01-ns/...")
+
+  Everything else in the notebook (column selections, filters, Feature Store write) remains unchanged.
+
